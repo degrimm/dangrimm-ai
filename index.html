@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dan Grimm — Builder-Operator | AI for Human Flourishing</title>
+<meta name="description" content="Builder-operator focused on bending the arc of AI toward human flourishing. Two decades leading strategy, product, and growth at AT&T, Amazon, RealNetworks, and startups across 20+ countries. Advising BCG on AI for social impact.">
+<meta property="og:title" content="Dan Grimm — Bending the arc of AI toward human flourishing">
+<meta property="og:description" content="Builder-operator. Two decades leading strategy, product, and growth at AT&T, Amazon, RealNetworks, and startups across 20+ countries.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dangrimm.ai">
+<link rel="canonical" href="https://dangrimm.ai">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#00356B">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* ── Type scale: 5 sizes ── */
+  :root {
+    --font-display: clamp(22px, 4vw + 0.5rem, 26px);
+    --font-lede: clamp(16px, 2.5vw + 0.5rem, 18px);
+    --font-body: 16px;
+    --font-small: 14px;
+    --font-overline: 11px;
+
+    --color-heading: #111;
+    --color-body: #555;
+    --color-meta: #999;
+    --color-accent: #00356B;
+    --color-rule: #e5e5e5;
+
+    --lh-tight: 1.3;
+    --lh-normal: 1.6;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    color: var(--color-body);
+    background: #fff;
+    line-height: var(--lh-normal);
+    font-size: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: 600px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+
+  /* ── Nav ── */
+  nav {
+    display: flex;
+    align-items: baseline;
+    gap: 24px;
+    padding-bottom: 1.5rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--color-rule);
+    font-size: var(--font-small);
+  }
+  nav .logo {
+    font-weight: 600;
+    font-size: var(--font-body);
+    color: var(--color-accent);
+    margin-right: auto;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  nav a { color: var(--color-body); text-decoration: none; font-weight: 500; }
+  nav a:hover { color: var(--color-accent); }
+
+  /* ── Hero ── */
+  .hero { margin-bottom: 3.5rem; }
+  .hero h1 {
+    font-size: var(--font-display);
+    font-weight: 600;
+    line-height: var(--lh-tight);
+    margin-bottom: 1rem;
+    color: var(--color-heading);
+    letter-spacing: -0.02em;
+  }
+  .hero h2 {
+    font-size: var(--font-lede);
+    font-weight: 400;
+    line-height: var(--lh-normal);
+    color: var(--color-body);
+    margin-bottom: 1.5rem;
+  }
+  .hero p {
+    font-size: var(--font-body);
+    color: var(--color-body);
+    line-height: var(--lh-normal);
+    margin-bottom: 1rem;
+  }
+  .hero p:last-child { margin-bottom: 0; }
+
+  /* ── Sections ── */
+  .section { margin-bottom: 3.5rem; }
+  .section-label {
+    font-size: var(--font-overline);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+
+  /* ── Essays ── */
+  .essay {
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-rule);
+  }
+  .essay:last-of-type { border-bottom: 1px solid var(--color-rule); }
+  .essay a { text-decoration: none; color: inherit; display: block; }
+  .essay a:hover h3 { color: var(--color-accent); }
+  .essay h3 {
+    font-size: var(--font-body);
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: 3px;
+    transition: color 0.15s;
+  }
+  .essay .week { font-size: var(--font-small); color: var(--color-meta); }
+  .essay p { font-size: var(--font-small); color: var(--color-body); line-height: var(--lh-normal); margin-top: 4px; }
+  .read-all {
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: var(--font-small);
+    color: var(--color-accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .read-all:hover { text-decoration: underline; }
+
+  /* ── Background ── */
+  .bg-item {
+    padding: 0.75rem 0;
+    border-top: 1px solid var(--color-rule);
+  }
+  .bg-item:last-of-type { border-bottom: 1px solid var(--color-rule); }
+  .bg-item .role { font-size: var(--font-body); font-weight: 600; color: var(--color-heading); }
+  .bg-item .org { font-size: var(--font-small); color: var(--color-body); }
+  .bg-item .detail { font-size: var(--font-small); color: var(--color-meta); margin-top: 2px; line-height: var(--lh-normal); }
+
+  /* ── Currently ── */
+  .currently p {
+    font-size: var(--font-body);
+    color: var(--color-body);
+    line-height: var(--lh-normal);
+  }
+  .currently strong { font-weight: 600; color: var(--color-heading); }
+
+  /* ── Footer ── */
+  .footer {
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-rule);
+  }
+  .footer p {
+    font-size: var(--font-body);
+    color: var(--color-body);
+    line-height: var(--lh-normal);
+    margin-bottom: 1rem;
+  }
+  .footer .links {
+    font-size: var(--font-small);
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .footer .links a {
+    color: var(--color-accent);
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .footer .links a:hover { text-decoration: underline; }
+  .footer .links .sep { color: #ccc; }
+
+  /* ── Mobile ── */
+  @media (max-width: 480px) {
+    .container { padding: 2rem 1.25rem 3rem; }
+    nav { gap: 16px; }
+    .hero h2 { margin-bottom: 1.25rem; }
+    .bg-item .detail { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <nav>
+    <a href="/" class="logo">Dan Grimm</a>
+    <a href="#about">about</a>
+    <a href="#writing">writing</a>
+    <a href="#contact">contact</a>
+  </nav>
+
+  <div class="hero" id="about">
+    <h1>Bending the arc of AI toward human flourishing.</h1>
+
+    <h2>We have a choice. We can build AI that optimizes for returns alone, or we can build AI that delivers investor returns and human flourishing together. Good products do both. The builders who figure out how to do that well have an opportunity to define the next era.</h2>
+
+    <p>I'm a builder-operator. I've spent two decades leading strategy, product, and growth at AT&amp;T, Amazon, RealNetworks, and startups across 20+ countries. That experience shapes how I think about AI: not just what to build, but how entire ecosystems develop &mdash; the products, the standards, the infrastructure, the incentive systems &mdash; broad human flourishing in many places, not just the markets that can already afford it.</p>
+
+    <p>Today I advise BCG on AI product strategy for social impact, and I explore these ideas every week in <em>AI for Human Flourishing</em>.</p>
+  </div>
+
+  <div class="section" id="writing">
+    <div class="section-label">Recent writing</div>
+
+    <div class="essay">
+      <a href="https://writing.dangrimm.ai/p/your-phone-number-is-an-ai-address">
+        <h3>Your phone number is an AI address</h3>
+        <span class="week">Week 4</span>
+        <p>Why carrier identity infrastructure and Open Gateway APIs make the phone number a first-class AI endpoint.</p>
+      </a>
+    </div>
+
+    <div class="essay">
+      <a href="https://writing.dangrimm.ai/p/who-are-you-on-the-web-really">
+        <h3>Four futures for identity in the web of AIs</h3>
+        <span class="week">Week 3</span>
+        <p>A scenario planning framework for how digital identity evolves as AI agents proliferate.</p>
+      </a>
+    </div>
+
+    <div class="essay">
+      <a href="https://writing.dangrimm.ai/p/the-ai-visibility-crisis-what-273">
+        <h3>The AI visibility crisis</h3>
+        <span class="week">Week 2</span>
+        <p>What 273 US parents revealed about how kids use AI &mdash; and why most parents have no idea.</p>
+      </a>
+    </div>
+
+    <div class="essay">
+      <a href="https://writing.dangrimm.ai/p/why-im-writing-about-ai-for-human">
+        <h3>Why I'm writing about AI for human flourishing</h3>
+        <span class="week">Week 1</span>
+        <p>The case for building AI that serves human dignity &mdash; and a commitment to explore how.</p>
+      </a>
+    </div>
+
+    <a href="https://writing.dangrimm.ai" class="read-all">Read all essays &rarr;</a>
+  </div>
+
+  <div class="section">
+    <div class="section-label">Where I've built</div>
+
+    <div class="bg-item">
+      <div class="role">Head of New Product Development</div>
+      <div class="org">AT&amp;T &middot; 2022&ndash;2025</div>
+      <div class="detail">Built and led a cross-functional community of 200+ engineers, PMs, and designers. Shipped 19 products and platforms across AI, connectivity, cybersecurity, and voice. The team filed 14 AI/voice patents.</div>
+    </div>
+
+    <div class="bg-item">
+      <div class="role">VP &amp; GM, SAFR Computer Vision</div>
+      <div class="org">RealNetworks &middot; 2018&ndash;2021</div>
+      <div class="detail">R&amp;D to $6M ARR in &lt;2 years. 130 partners across 20 countries.</div>
+    </div>
+
+    <div class="bg-item">
+      <div class="role">GM, Kindle Enterprise Publishing &amp; Sr. PM, KDP</div>
+      <div class="org">Amazon &middot; 2014&ndash;2018</div>
+      <div class="detail">0&rarr;1 product. Fastest-growing, most profitable content channel. 13 international markets.</div>
+    </div>
+
+    <div class="bg-item">
+      <div class="role">Associate Partner</div>
+      <div class="org">Monitor Group &middot; 2005&ndash;2014</div>
+      <div class="detail">Growth strategy and national development. 30+ engagements in 15 countries.</div>
+    </div>
+
+    <div class="bg-item">
+      <div class="role">Co-Founder</div>
+      <div class="org">Hell&omacr; &middot; CapitolCrypt &middot; Unistreaming</div>
+      <div class="detail">Identity, civic tech, and media startups.</div>
+    </div>
+  </div>
+
+  <div class="section currently">
+    <div class="section-label">Currently</div>
+    <p><strong>Senior AI Product Advisor</strong> at BCG &mdash; AI product strategy for social impact, particularly global health and development.</p>
+  </div>
+
+  <div class="footer" id="contact">
+    <p>If you're building something that matters &mdash; for human flourishing and investor returns &mdash; I'd welcome the conversation.</p>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/dgrimm/">LinkedIn</a>
+      <span class="sep">&middot;</span>
+      <a href="https://x.com/DanielEGrimm">X</a>
+      <span class="sep">&middot;</span>
+      <a href="https://writing.dangrimm.ai">Substack</a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

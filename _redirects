@@ -1,0 +1,7 @@
+# Forward old Substack post URLs to writing subdomain
+/p/*    https://writing.dangrimm.ai/p/:splat    301
+
+# Forward old Substack archive and subscribe pages
+/archive    https://writing.dangrimm.ai/archive    301
+/subscribe  https://writing.dangrimm.ai/subscribe  301
+/about      https://writing.dangrimm.ai/about      301
