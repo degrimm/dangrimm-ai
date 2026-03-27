@@ -9,6 +9,13 @@
 <meta property="og:description" content="Builder-operator. Two decades leading strategy, product, and growth at AT&T, Amazon, RealNetworks, and startups across 20+ countries.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dangrimm.ai">
+<meta property="og:image" content="https://dangrimm.ai/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dan Grimm — Bending the arc of AI toward human flourishing">
+<meta name="twitter:description" content="Builder-operator. Two decades leading strategy, product, and growth at AT&T, Amazon, RealNetworks, and startups across 20+ countries.">
+<meta name="twitter:image" content="https://dangrimm.ai/og-image.png">
 <link rel="canonical" href="https://dangrimm.ai">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -18,7 +25,7 @@
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* ── Type scale: 5 sizes ── */
+  /* ── Type scale ── */
   :root {
     --font-display: clamp(22px, 4vw + 0.5rem, 26px);
     --font-lede: clamp(16px, 2.5vw + 0.5rem, 18px);
@@ -31,6 +38,7 @@
     --color-meta: #999;
     --color-accent: #00356B;
     --color-rule: #e5e5e5;
+    --color-surface: #f9fafb;
 
     --lh-tight: 1.3;
     --lh-normal: 1.6;
@@ -65,7 +73,15 @@
     letter-spacing: -0.01em;
     text-decoration: none;
   }
-  nav a { color: var(--color-body); text-decoration: none; font-weight: 500; }
+  nav a {
+    color: var(--color-body);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: baseline;
+  }
   nav a:hover { color: var(--color-accent); }
 
   /* ── Hero ── */
@@ -83,15 +99,7 @@
     font-weight: 400;
     line-height: var(--lh-normal);
     color: var(--color-body);
-    margin-bottom: 1.5rem;
   }
-  .hero p {
-    font-size: var(--font-body);
-    color: var(--color-body);
-    line-height: var(--lh-normal);
-    margin-bottom: 1rem;
-  }
-  .hero p:last-child { margin-bottom: 0; }
 
   /* ── Sections ── */
   .section { margin-bottom: 3.5rem; }
@@ -102,6 +110,14 @@
     text-transform: uppercase;
     color: var(--color-accent);
     margin-bottom: 1rem;
+  }
+
+  /* ── Writing section — surface card ── */
+  .writing-section {
+    background: var(--color-surface);
+    border-radius: 8px;
+    padding: 2rem 1.5rem;
+    margin-bottom: 3.5rem;
   }
 
   /* ── Essays ── */
@@ -119,7 +135,11 @@
     margin-bottom: 3px;
     transition: color 0.15s;
   }
-  .essay .week { font-size: var(--font-small); color: var(--color-meta); }
+  .essay .meta {
+    font-size: var(--font-small);
+    color: var(--color-meta);
+    font-variant-numeric: tabular-nums;
+  }
   .essay p { font-size: var(--font-small); color: var(--color-body); line-height: var(--lh-normal); margin-top: 4px; }
   .read-all {
     display: inline-block;
@@ -131,6 +151,15 @@
   }
   .read-all:hover { text-decoration: underline; }
 
+  /* ── About ── */
+  .about p {
+    font-size: var(--font-body);
+    color: var(--color-body);
+    line-height: var(--lh-normal);
+    margin-bottom: 1rem;
+  }
+  .about p:last-child { margin-bottom: 0; }
+
   /* ── Background ── */
   .bg-item {
     padding: 0.75rem 0;
@@ -140,14 +169,6 @@
   .bg-item .role { font-size: var(--font-body); font-weight: 600; color: var(--color-heading); }
   .bg-item .org { font-size: var(--font-small); color: var(--color-body); }
   .bg-item .detail { font-size: var(--font-small); color: var(--color-meta); margin-top: 2px; line-height: var(--lh-normal); }
-
-  /* ── Currently ── */
-  .currently p {
-    font-size: var(--font-body);
-    color: var(--color-body);
-    line-height: var(--lh-normal);
-  }
-  .currently strong { font-weight: 600; color: var(--color-heading); }
 
   /* ── Footer ── */
   .footer {
@@ -161,6 +182,55 @@
     line-height: var(--lh-normal);
     margin-bottom: 1rem;
   }
+
+  /* ── Contact form ── */
+  .footer form {
+    margin-bottom: 2rem;
+  }
+  .hidden { display: none; }
+  .form-group {
+    margin-bottom: 0.75rem;
+  }
+  .form-group label {
+    display: block;
+    font-size: var(--font-small);
+    font-weight: 600;
+    color: var(--color-heading);
+    margin-bottom: 4px;
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: var(--font-body);
+    color: var(--color-heading);
+    background: var(--color-surface);
+    border: 1px solid var(--color-rule);
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    line-height: var(--lh-normal);
+    transition: border-color 0.15s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+  .form-group textarea { resize: vertical; }
+  .footer button {
+    font-family: inherit;
+    font-size: var(--font-small);
+    font-weight: 600;
+    color: #fff;
+    background: var(--color-accent);
+    border: none;
+    border-radius: 4px;
+    padding: 0.6rem 1.25rem;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .footer button:hover { opacity: 0.85; }
+
   .footer .links {
     font-size: var(--font-small);
     display: flex;
@@ -178,8 +248,10 @@
   /* ── Mobile ── */
   @media (max-width: 480px) {
     .container { padding: 2rem 1.25rem 3rem; }
-    nav { gap: 16px; }
+    nav { gap: 20px; }
+    nav a { min-height: 44px; padding: 0.5rem 0.25rem; }
     .hero h2 { margin-bottom: 1.25rem; }
+    .writing-section { padding: 1.5rem 1.25rem; margin-left: -1.25rem; margin-right: -1.25rem; border-radius: 0; }
     .bg-item .detail { display: none; }
   }
 </style>
@@ -194,23 +266,20 @@
     <a href="#contact">contact</a>
   </nav>
 
-  <div class="hero" id="about">
+  <div class="hero">
     <h1>Bending the arc of AI toward human flourishing.</h1>
 
     <h2>We have a choice. We can build AI that optimizes for returns alone, or we can build AI that delivers investor returns and human flourishing together. Good products do both. The builders who figure out how to do that well have an opportunity to define the next era.</h2>
-
-    <p>I'm a builder-operator. I've spent two decades leading strategy, product, and growth at AT&amp;T, Amazon, RealNetworks, and startups across 20+ countries. That experience shapes how I think about AI: not just what to build, but how entire ecosystems develop &mdash; the products, the standards, the infrastructure, the incentive systems &mdash; broad human flourishing in many places, not just the markets that can already afford it.</p>
-
-    <p>Today I advise BCG on AI product strategy for social impact, and I explore these ideas every week in <em>AI for Human Flourishing</em>.</p>
   </div>
 
-  <div class="section" id="writing">
+  <div class="writing-section" id="writing">
     <div class="section-label">Recent writing</div>
 
+    <!-- ESSAYS:START -->
     <div class="essay">
       <a href="https://writing.dangrimm.ai/p/your-phone-number-is-an-ai-address">
         <h3>Your phone number is an AI address</h3>
-        <span class="week">Week 4</span>
+        <span class="meta">#4 &middot; Mar 7, 2026</span>
         <p>Why carrier identity infrastructure and Open Gateway APIs make the phone number a first-class AI endpoint.</p>
       </a>
     </div>
@@ -218,7 +287,7 @@
     <div class="essay">
       <a href="https://writing.dangrimm.ai/p/who-are-you-on-the-web-really">
         <h3>Four futures for identity in the web of AIs</h3>
-        <span class="week">Week 3</span>
+        <span class="meta">#3 &middot; Feb 23, 2026</span>
         <p>A scenario planning framework for how digital identity evolves as AI agents proliferate.</p>
       </a>
     </div>
@@ -226,7 +295,7 @@
     <div class="essay">
       <a href="https://writing.dangrimm.ai/p/the-ai-visibility-crisis-what-273">
         <h3>The AI visibility crisis</h3>
-        <span class="week">Week 2</span>
+        <span class="meta">#2 &middot; Feb 14, 2026</span>
         <p>What 273 US parents revealed about how kids use AI &mdash; and why most parents have no idea.</p>
       </a>
     </div>
@@ -234,12 +303,21 @@
     <div class="essay">
       <a href="https://writing.dangrimm.ai/p/why-im-writing-about-ai-for-human">
         <h3>Why I'm writing about AI for human flourishing</h3>
-        <span class="week">Week 1</span>
+        <span class="meta">#1 &middot; Feb 7, 2026</span>
         <p>The case for building AI that serves human dignity &mdash; and a commitment to explore how.</p>
       </a>
     </div>
+    <!-- ESSAYS:END -->
 
     <a href="https://writing.dangrimm.ai" class="read-all">Read all essays &rarr;</a>
+  </div>
+
+  <div class="section about" id="about">
+    <div class="section-label">About</div>
+
+    <p>I'm a builder-operator. I've spent two decades leading strategy, product, and growth at AT&amp;T, Amazon, RealNetworks, and startups across 20+ countries. That experience shapes how I think about AI: not just what to build, but how entire ecosystems develop &mdash; the products, the standards, the infrastructure, the incentive systems &mdash; broad human flourishing in many places, not just the markets that can already afford it.</p>
+
+    <p>Today I advise BCG on AI product strategy for social impact, and I explore these ideas in <em>AI for Human Flourishing</em>.</p>
   </div>
 
   <div class="section">
@@ -276,13 +354,38 @@
     </div>
   </div>
 
-  <div class="section currently">
+  <div class="section">
     <div class="section-label">Currently</div>
-    <p><strong>Senior AI Product Advisor</strong> at BCG &mdash; AI product strategy for social impact, particularly global health and development.</p>
+    <div class="bg-item">
+      <div class="role">Senior AI Product Advisor</div>
+      <div class="org">BCG &middot; 2025&ndash;Present</div>
+      <div class="detail">AI product strategy for social impact, particularly global health and development.</div>
+    </div>
   </div>
 
   <div class="footer" id="contact">
     <p>If you're building something that matters &mdash; for human flourishing and investor returns &mdash; I'd welcome the conversation.</p>
+
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p class="hidden" aria-hidden="true">
+        <label>Don't fill this out: <input name="bot-field"></label>
+      </p>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+      </div>
+      <button type="submit">Send message</button>
+    </form>
+
     <div class="links">
       <a href="https://www.linkedin.com/in/dgrimm/">LinkedIn</a>
       <span class="sep">&middot;</span>
