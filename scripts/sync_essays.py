@@ -15,7 +15,7 @@ import re
 import urllib.request
 import xml.etree.ElementTree as ET
 from datetime import datetime
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 
 FEED_URL = "https://writing.dangrimm.ai/feed"
@@ -60,7 +60,12 @@ def parse_essays(feed_xml: str) -> list[dict]:
 
         # Clean up description: strip HTML tags, truncate
         description = re.sub(r"<[^>]+>", "", description)
+        description = unescape(description)
         description = re.sub(r"\s+", " ", description).strip()
+        # Strip leading "#N | " prefix if the essay description repeats the number
+        description = re.sub(r"^#\d+\s*\|\s*", "", description)
+        # Strip any trailing "(Essay N...)" so we can append a consistent one
+        description = re.sub(r"\s*\(Essay[^)]*\)\s*$", "", description).strip()
         if len(description) > 180:
             description = description[:177].rsplit(" ", 1)[0] + "..."
 
@@ -87,13 +92,14 @@ def render_essays(essays: list[dict]) -> str:
         num = len(essays) - essays.index(essay)
         date_str = essay["date"].strftime("%b %-d, %Y")
         title_escaped = escape(essay["title"])
-        desc_escaped = escape(essay["description"]).replace("&amp;mdash;", "&mdash;")
+        subtitle = f'{essay["description"]} (Essay {num})' if essay["description"] else f'Essay {num}'
+        desc_escaped = escape(subtitle)
 
         lines.append(f'    <div class="essay">')
         lines.append(f'      <a href="{escape(essay["link"])}">')
         lines.append(f"        <h3>{title_escaped}</h3>")
-        lines.append(f'        <span class="meta">#{num} &middot; {date_str}</span>')
         lines.append(f"        <p>{desc_escaped}</p>")
+        lines.append(f'        <span class="meta">{date_str}</span>')
         lines.append(f"      </a>")
         lines.append(f"    </div>")
         if i < len(shown) - 1:
