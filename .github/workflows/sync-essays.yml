@@ -2,8 +2,8 @@ name: Sync Substack Essays
 
 on:
   schedule:
-    # Run daily at 8am UTC (1am PT / 4am ET)
-    - cron: '0 8 * * *'
+    # Run every 15 minutes
+    - cron: '*/15 * * * *'
   workflow_dispatch: # Allow manual trigger
 
 permissions:
