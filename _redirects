@@ -5,3 +5,6 @@
 /archive    https://writing.dangrimm.ai/archive    301
 /subscribe  https://writing.dangrimm.ai/subscribe  301
 /about      https://writing.dangrimm.ai/about      301
+
+# Short link for the product discovery deck
+/product-discovery    /decks/product-discovery/    301
